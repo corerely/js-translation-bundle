@@ -6,7 +6,7 @@ namespace Corerely\JsTranslation\Provider;
 interface TranslationsProviderInterface
 {
     /**
-     * Return array of translations for given locales and domains
+     * Return array of translations for given locales on configured domains
      */
-    public function get(array $locales, array $domains): array;
+    public function get(array $locales): array;
 }

@@ -1,4 +1,5 @@
-<?php declare(strict_types = 1);
+<?php
+declare(strict_types=1);
 
 namespace Corerely\JsTranslation\Provider;
 
@@ -8,24 +9,22 @@ class TranslationsProvider implements TranslationsProviderInterface
 {
     public function __construct(
         private TranslatorBagInterface $translatorBag,
-        private string $defaultLocale,
+        private array                  $domains,
+        private string                 $defaultLocale,
     ) {
     }
 
-    public function get(array $locales, array $domains): array
+    public function get(array $locales): array
     {
 
         $translations = [];
         foreach ($locales as $locale) {
             // Collect translations for single locale
-            $localeTranslations = $this->getTranslationForLocale($locale, $domains);
+            $localeTranslations = $this->getTranslationForLocale($locale);
 
             // If this locale is not default, merge translations with default, because translations might be missing
             if ($locale !== $this->defaultLocale) {
-                $defaultTranslations = $translations[$this->defaultLocale] ??= $this->getTranslationForLocale(
-                    $this->defaultLocale,
-                    $domains
-                );
+                $defaultTranslations = $translations[$this->defaultLocale] ??= $this->getTranslationForLocale($this->defaultLocale);
 
                 $localeTranslations = array_replace_recursive(
                     $defaultTranslations,
@@ -37,17 +36,17 @@ class TranslationsProvider implements TranslationsProviderInterface
         }
 
         // Remove default translations if it was not needed, but added while population
-        if (! in_array($this->defaultLocale, $locales, true)) {
+        if (!in_array($this->defaultLocale, $locales, true)) {
             unset($translations[$this->defaultLocale]);
         }
 
         return $translations;
     }
 
-    private function getTranslationForLocale(string $locale, array $domains): array
+    private function getTranslationForLocale(string $locale): array
     {
         $translations = [];
-        foreach ($domains as $domain) {
+        foreach ($this->domains as $domain) {
             $domainTranslations = $this->translatorBag->getCatalogue($locale)->all($domain);
 
             foreach ($domainTranslations as $key => $translation) {

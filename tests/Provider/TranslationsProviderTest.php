@@ -25,6 +25,7 @@ class TranslationsProviderTest extends TestCase
 
         $subject = new TranslationsProvider(
             $mockedTranslatorBag,
+            ['app'],
             'en',
         );
 
@@ -45,6 +46,6 @@ class TranslationsProviderTest extends TestCase
             ],
         ];
 
-        $this->assertEquals($expect, $subject->get(['en'], ['app']));
+        $this->assertEquals($expect, $subject->get(['en']));
     }
 }
