@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Corerely\JsTranslation\Provider;
 
@@ -6,10 +6,8 @@ use Symfony\Component\Translation\TranslatorBagInterface;
 
 class TranslationsProvider implements TranslationsProviderInterface
 {
-    public function __construct(
-        private TranslatorBagInterface $translatorBag,
-        private string $defaultLocale,
-    ) {
+    public function __construct(private TranslatorBagInterface $translatorBag, private string $defaultLocale)
+    {
     }
 
     public function get(array $locales, array $domains): array
@@ -37,7 +35,7 @@ class TranslationsProvider implements TranslationsProviderInterface
         }
 
         // Remove default translations if it was not needed, but added while population
-        if (! in_array($this->defaultLocale, $locales, true)) {
+        if (!in_array($this->defaultLocale, $locales, true)) {
             unset($translations[$this->defaultLocale]);
         }
 
