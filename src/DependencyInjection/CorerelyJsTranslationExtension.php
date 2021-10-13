@@ -16,6 +16,7 @@ class CorerelyJsTranslationExtension extends Extension
     {
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.php');
+        $loader->load('controllers.php');
 
         $container->registerForAutoconfiguration(LocaleResolverInterface::class)->addTag('corerely.js_translation.locale_resolver');
     }

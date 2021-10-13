@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslations\Tests\Provider;
+namespace Corerely\JsTranslation\Tests\Provider;
 
 use Corerely\JsTranslation\Provider\TranslationsProvider;
 use PHPUnit\Framework\TestCase;

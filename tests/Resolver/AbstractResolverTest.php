@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslations\Tests\Resolver;
+namespace Corerely\JsTranslation\Tests\Resolver;
 
 use Corerely\JsTranslation\Resolver\AbstractResolver;
 use PHPUnit\Framework\TestCase;
