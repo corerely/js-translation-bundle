@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Corerely\JsTranslation\Resolver;
 
-class ChainLocaleResolver implements LocaleResolverInterface
+final class ChainLocaleResolver implements LocaleResolverInterface
 {
     /**
      * @var LocaleResolverInterface[]

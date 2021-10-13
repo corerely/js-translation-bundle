@@ -6,7 +6,7 @@ namespace Corerely\JsTranslation\Resolver;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class RequestHeaderLocaleResolver extends AbstractResolver
+final class RequestHeaderLocaleResolver extends AbstractResolver
 {
     private ?Request $request;
 

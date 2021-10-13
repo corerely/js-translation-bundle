@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Corerely\JsTranslation\Resolver;
 
-class DefaultLocaleResolver implements LocaleResolverInterface
+final class DefaultLocaleResolver implements LocaleResolverInterface
 {
 
     public function __construct(private string $defaultLocale)

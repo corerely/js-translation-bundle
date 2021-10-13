@@ -6,7 +6,7 @@ namespace Corerely\JsTranslation\Resolver;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class CookieLocaleResolver extends AbstractResolver
+final class CookieLocaleResolver extends AbstractResolver
 {
     public const LOCALE_COOKIE_NAME = 'js_translation_locale';
 

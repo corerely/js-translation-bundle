@@ -21,7 +21,8 @@
     },
     "require": {
         "php": "^8.0",
-        "symfony/http-foundation": "^5.3"
+        "symfony/http-foundation": "^5.0",
+        "symfony/translation": "^5.0"
     },
     "require-dev": {
         "slevomat/coding-standard": "^7.0",
