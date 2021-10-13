@@ -15,7 +15,10 @@ use Symfony\Component\DependencyInjection\Reference;
 return static function (ContainerConfigurator $container) {
     $services = $container->services();
 
-    $services->set('corerely.js_translation.translations_provider')->class(TranslationsProvider::class);
+    $services->set('corerely.js_translation.translations_provider')
+        ->class(TranslationsProvider::class)
+        ->arg(0, new Reference('translator.default'))
+        ->arg(1, new Parameter('corerely.js_translation.default_locale'));
     $services->alias(TranslationsProviderInterface::class, 'corerely.js_translation.translations_provider');
 
     $services->set('corerely.js_translation.resolver.locale.chain')
