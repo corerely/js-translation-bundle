@@ -1,0 +1,30 @@
+{
+    "name": "corerely/js-translation-bundle",
+    "description": "Expose translations as JSON on Frontend",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrii Oprysko",
+            "email": "anjey.link@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Corerely\\JsTranslation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Corerely\\JsTranslation\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "symfony/http-foundation": "^5.3"
+    },
+    "require-dev": {
+        "slevomat/coding-standard": "^7.0",
+        "phpunit/phpunit": "^9.5"
+    }
+}
