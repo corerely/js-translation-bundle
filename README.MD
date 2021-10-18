@@ -19,7 +19,7 @@ parameters:
     # All App locales
     corerely.js_translation.locales: [ 'en', 'sv' ]
     # All App domains
-    corerely.js_translation.domains: [ 'app', 'ra', 'resources' ]
+    corerely.js_translation.domains: [ 'app' ]
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
 
-    public function __construct(private JsTranslationsService $translationsService
+    public function __construct(private JsTranslationsService $translationsService)
     {
     }
 
@@ -61,7 +61,7 @@ class AdminController extends AbstractController
 
 If you need to load translations as JSON dynamically configure coresponding endpoint.
 
-In your `config/routes.yaml` add
+Add to routes `config/routes.yaml`
 
 ```yaml
 corerely_js_translation:
@@ -83,7 +83,7 @@ Now try to open url `/locale/en`. It should return translations for `en` locale 
 By default bundle is checking if cookie with name `locale` is set in order determinate App locale.
 If not it's trying to resolve locale from `Accept-Language` header.
 
-If anything from above doesn't work bundle fallback to default locale set in parameter `corerely.js_translation.default_locale`.
+If nothing from above is working bundle fallback to default locale set in parameter `corerely.js_translation.default_locale`.
 
 It's possible to add custom locale resolver. Just create new service that implements `Corerely\JsTranslation\Resolver\LocaleResolverInterface`.
 Thanks to Symfony autowiring it'll automatilly tagged with `corerely.js_translation.locale_resolver` tag.
