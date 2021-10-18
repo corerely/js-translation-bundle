@@ -20,7 +20,7 @@ class LoaderControllerTest extends TestCase
 
     public function testLoadTranslations()
     {
-        $this->client->request('GET', '/translations/load/en');
+        $this->client->request('GET', '/translations/en');
 
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertJson($this->client->getResponse()->getContent());
