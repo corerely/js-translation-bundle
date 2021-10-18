@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 use Corerely\JsTranslation\Provider\TranslationsProvider;
 use Corerely\JsTranslation\Provider\TranslationsProviderInterface;
+use Corerely\JsTranslation\JsTranslationsService;
 use Corerely\JsTranslation\Resolver\ChainLocaleResolver;
 use Corerely\JsTranslation\Resolver\CookieLocaleResolver;
 use Corerely\JsTranslation\Resolver\DefaultLocaleResolver;
@@ -14,6 +15,13 @@ use Symfony\Component\DependencyInjection\Reference;
 
 return static function (ContainerConfigurator $container) {
     $services = $container->services();
+
+    $services->set('corerely.js_translation.service', JsTranslationsService::class)
+        ->arg(0, new Reference(TranslationsProviderInterface::class))
+        ->arg(1, new Reference(LocaleResolverInterface::class))
+        ->arg(2, new Parameter('corerely.js_translation.domains'))
+    ;
+    $services->alias(JsTranslationsService::class, 'corerely.js_translation.service');
 
     $services->set('corerely.js_translation.translations_provider')
         ->class(TranslationsProvider::class)
