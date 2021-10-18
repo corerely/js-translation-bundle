@@ -13,7 +13,7 @@ class CookieLocaleResolverTest extends TestCase
     public function testResolve()
     {
         $locales = ['sv', 'uk'];
-        $request = new Request(cookies: [CookieLocaleResolver::LOCALE_COOKIE_NAME => 'uk']);
+        $request = new Request(cookies: ['locale' => 'uk']);
         $requestStack = new RequestStack();
         $requestStack->push($request);
 
