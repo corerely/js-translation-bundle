@@ -29,6 +29,12 @@ class CorerelyJsTranslationKernel extends Kernel
 
     public function configureContainer(ContainerConfigurator $container): void
     {
+        $container->extension('framework', [
+            'router' => [
+                'utf8' => true,
+            ],
+        ]);
+
         $parameters = $container->parameters();
         $parameters->set('corerely.js_translation.domains', ['app']);
         $parameters->set('corerely.js_translation.default_locale', 'en');
@@ -37,6 +43,6 @@ class CorerelyJsTranslationKernel extends Kernel
 
     public function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import(__DIR__ . '/../config/routes.php')->prefix('translations');
+        $routes->import(__DIR__ . '/../src/Resources/routing/routes.php')->prefix('translations');
     }
 }
