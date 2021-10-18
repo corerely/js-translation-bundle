@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Resolver;
+namespace Corerely\JsTranslationBundle\Resolver;
 
 final class DefaultLocaleResolver implements LocaleResolverInterface
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation;
+namespace Corerely\JsTranslationBundle;
 
-use Corerely\JsTranslation\Provider\TranslationsProviderInterface;
-use Corerely\JsTranslation\Resolver\LocaleResolverInterface;
+use Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface;
+use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 
 /**
  * Helper service that helps to retrieve translations for resolved locale and configured domains

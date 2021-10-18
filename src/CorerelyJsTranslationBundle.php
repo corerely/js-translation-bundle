@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation;
+namespace Corerely\JsTranslationBundle;
 
-use Corerely\JsTranslation\DependencyInjection\Compiler\AddLocaleResolversToChainCompilerPass;
+use Corerely\JsTranslationBundle\DependencyInjection\Compiler\AddLocaleResolversToChainCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

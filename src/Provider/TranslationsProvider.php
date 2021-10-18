@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Provider;
+namespace Corerely\JsTranslationBundle\Provider;
 
 use Symfony\Component\Translation\TranslatorBagInterface;
 

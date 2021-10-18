@@ -33,7 +33,7 @@ In your service inject helper service with ID `corerely.js_translation.service` 
 
 namespace App\Controller;
 
-use Corerely\JsTranslation\JsTranslationsService;
+use Corerely\JsTranslationBundle\JsTranslationsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,8 +75,8 @@ Now try to open url `/locale/en`. It should return translations for `en` locale 
 
 ### 3. Public API
 
- - `Corerely\JsTranslation\Provider\TranslationsProviderInterface` - use for gettings translations for given locales and domains.
- - `Corerely\JsTranslation\Resolver\LocaleResolverInterface` - service for resolving current App locale
+ - `Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface` - use for gettings translations for given locales and domains.
+ - `Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface` - service for resolving current App locale
 
 ### 4. Custom App locale resolver
 
@@ -85,14 +85,14 @@ If not it's trying to resolve locale from `Accept-Language` header.
 
 If nothing from above is working bundle fallback to default locale set in parameter `corerely.js_translation.default_locale`.
 
-It's possible to add custom locale resolver. Just create new service that implements `Corerely\JsTranslation\Resolver\LocaleResolverInterface`.
+It's possible to add custom locale resolver. Just create new service that implements `Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface`.
 Thanks to Symfony autowiring it'll automatilly tagged with `corerely.js_translation.locale_resolver` tag.
 
 ```php
 // app/CustomResolver.php
 namespace App;
 
-class CustomResolver implements Corerely\JsTranslation\Resolver\LocaleResolverInterface
+class CustomResolver implements Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface
 {
     public function resolve(): ?string
     {

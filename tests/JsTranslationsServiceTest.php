@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Corerely\JsTranslations\Tests;
 
-use Corerely\JsTranslation\JsTranslationsService;
-use Corerely\JsTranslation\Provider\TranslationsProviderInterface;
-use Corerely\JsTranslation\Resolver\LocaleResolverInterface;
+use Corerely\JsTranslationBundle\JsTranslationsService;
+use Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface;
+use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 use PHPUnit\Framework\TestCase;
 
 class JsTranslationsServiceTest extends TestCase

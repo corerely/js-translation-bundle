@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Provider;
+namespace Corerely\JsTranslationBundle\Provider;
 
 interface TranslationsProviderInterface
 {

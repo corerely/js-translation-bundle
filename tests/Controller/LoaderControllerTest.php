@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Controller;
+namespace Corerely\JsTranslationBundle\Tests\Controller;
 
-use Corerely\JsTranslation\Tests\CorerelyJsTranslationKernel;
+use Corerely\JsTranslationBundle\Tests\CorerelyJsTranslationKernel;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 

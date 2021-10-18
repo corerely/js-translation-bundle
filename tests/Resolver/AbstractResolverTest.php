@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Resolver;
+namespace Corerely\JsTranslationBundle\Tests\Resolver;
 
-use Corerely\JsTranslation\Resolver\AbstractResolver;
+use Corerely\JsTranslationBundle\Resolver\AbstractResolver;
 use PHPUnit\Framework\TestCase;
 
 class AbstractResolverTest extends TestCase

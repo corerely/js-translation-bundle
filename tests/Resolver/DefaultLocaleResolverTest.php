@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Resolver;
+namespace Corerely\JsTranslationBundle\Tests\Resolver;
 
-use Corerely\JsTranslation\Resolver\DefaultLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\DefaultLocaleResolver;
 use PHPUnit\Framework\TestCase;
 
 class DefaultLocaleResolverTest extends TestCase

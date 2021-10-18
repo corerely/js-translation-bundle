@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Controller;
+namespace Corerely\JsTranslationBundle\Controller;
 
-use Corerely\JsTranslation\Provider\TranslationsProviderInterface;
+use Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LoaderController

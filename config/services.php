@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-use Corerely\JsTranslation\Provider\TranslationsProvider;
-use Corerely\JsTranslation\Provider\TranslationsProviderInterface;
-use Corerely\JsTranslation\JsTranslationsService;
-use Corerely\JsTranslation\Resolver\ChainLocaleResolver;
-use Corerely\JsTranslation\Resolver\CookieLocaleResolver;
-use Corerely\JsTranslation\Resolver\DefaultLocaleResolver;
-use Corerely\JsTranslation\Resolver\LocaleResolverInterface;
-use Corerely\JsTranslation\Resolver\RequestHeaderLocaleResolver;
+use Corerely\JsTranslationBundle\Provider\TranslationsProvider;
+use Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface;
+use Corerely\JsTranslationBundle\JsTranslationsService;
+use Corerely\JsTranslationBundle\Resolver\ChainLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\CookieLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\DefaultLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
+use Corerely\JsTranslationBundle\Resolver\RequestHeaderLocaleResolver;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Parameter;
 use Symfony\Component\DependencyInjection\Reference;

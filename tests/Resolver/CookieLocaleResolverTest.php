@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Resolver;
+namespace Corerely\JsTranslationBundle\Tests\Resolver;
 
-use Corerely\JsTranslation\Resolver\CookieLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\CookieLocaleResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;

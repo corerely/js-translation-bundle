@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\DependencyInjection;
+namespace Corerely\JsTranslationBundle\DependencyInjection;
 
-use Corerely\JsTranslation\Resolver\LocaleResolverInterface;
+use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Resolver;
+namespace Corerely\JsTranslationBundle\Tests\Resolver;
 
-use Corerely\JsTranslation\Resolver\ChainLocaleResolver;
-use Corerely\JsTranslation\Resolver\LocaleResolverInterface;
+use Corerely\JsTranslationBundle\Resolver\ChainLocaleResolver;
+use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 use PHPUnit\Framework\TestCase;
 
 class ChainLocaleResolverTest extends TestCase

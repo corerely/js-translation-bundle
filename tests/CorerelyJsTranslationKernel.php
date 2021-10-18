@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests;
+namespace Corerely\JsTranslationBundle\Tests;
 
-use Corerely\JsTranslation\CorerelyJsTranslationBundle;
+use Corerely\JsTranslationBundle\CorerelyJsTranslationBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;

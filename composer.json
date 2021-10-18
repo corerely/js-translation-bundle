@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Corerely\\JsTranslation\\": "src/"
+            "Corerely\\JsTranslationBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Corerely\\JsTranslation\\Tests\\": "tests/"
+            "Corerely\\JsTranslationBundle\\Tests\\": "tests/"
         }
     },
     "require": {

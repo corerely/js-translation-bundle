@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Corerely\JsTranslation\Tests\Provider;
+namespace Corerely\JsTranslationBundle\Tests\Provider;
 
-use Corerely\JsTranslation\Provider\TranslationsProvider;
+use Corerely\JsTranslationBundle\Provider\TranslationsProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Translation\MessageCatalogueInterface;
 use Symfony\Component\Translation\TranslatorBagInterface;
