@@ -22,7 +22,7 @@ class JsTranslationsService
 
     public function getTranslationsForActiveLocale(): array
     {
-        $locale = $this->localeResolver->resolve();
+        $locale = $this->getActiveLocale();
 
         return $this->translationsProvider->get([$locale], $this->domains);
     }
