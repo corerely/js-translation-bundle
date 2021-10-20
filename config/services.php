@@ -30,6 +30,7 @@ return static function (ContainerConfigurator $container) {
     $services->alias(TranslationsProviderInterface::class, 'corerely.js_translation.translations_provider');
 
     $services->set('corerely.js_translation.resolver.locale.chain')
+        ->arg(0, new Parameter('corerely.js_translation.locales'))
         ->class(ChainLocaleResolver::class);
 
     $services->alias(LocaleResolverInterface::class, 'corerely.js_translation.resolver.locale.chain');
@@ -37,7 +38,6 @@ return static function (ContainerConfigurator $container) {
     $services->set('corerely.js_translation.resolver.locale.cookie_resolver')
         ->class(CookieLocaleResolver::class)
         ->arg(0, new Reference('request_stack'))
-        ->arg(1, new Parameter('corerely.js_translation.locales'))
         ->tag('corerely.js_translation.locale_resolver', ['priority' => -10]);
 
     $services->set('corerely.js_translation.resolver.locale.request_header_resolver')
