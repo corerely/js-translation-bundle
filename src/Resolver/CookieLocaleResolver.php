@@ -6,20 +6,18 @@ namespace Corerely\JsTranslationBundle\Resolver;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class CookieLocaleResolver extends AbstractResolver
+final class CookieLocaleResolver implements LocaleResolverInterface
 {
     public const LOCALE_COOKIE_NAME = 'locale';
 
     private ?Request $request;
 
-    public function __construct(RequestStack $requestStack, array $locales)
+    public function __construct(RequestStack $requestStack)
     {
-        parent::__construct($locales);
-
         $this->request = $requestStack->getCurrentRequest();
     }
 
-    protected function doResolver(): ?string
+    public function resolve(): ?string
     {
         return $this->request?->cookies->get(self::LOCALE_COOKIE_NAME);
     }

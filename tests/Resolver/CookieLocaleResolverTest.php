@@ -12,24 +12,22 @@ class CookieLocaleResolverTest extends TestCase
 {
     public function testResolve()
     {
-        $locales = ['sv', 'uk'];
         $request = new Request(cookies: ['locale' => 'uk']);
         $requestStack = new RequestStack();
         $requestStack->push($request);
 
-        $resolver = new CookieLocaleResolver($requestStack, $locales);
+        $resolver = new CookieLocaleResolver($requestStack);
 
         $this->assertEquals('uk', $resolver->resolve());
     }
 
     public function testResolveReturnNullIfNoCookie()
     {
-        $locales = ['sv', 'uk'];
         $request = new Request();
         $requestStack = new RequestStack();
         $requestStack->push($request);
 
-        $resolver = new CookieLocaleResolver($requestStack, $locales);
+        $resolver = new CookieLocaleResolver($requestStack);
 
         $this->assertNull($resolver->resolve());
     }
@@ -39,7 +37,7 @@ class CookieLocaleResolverTest extends TestCase
         $locales = ['sv', 'uk'];
         $requestStack = new RequestStack();
 
-        $resolver = new CookieLocaleResolver($requestStack, $locales);
+        $resolver = new CookieLocaleResolver($requestStack);
 
         $this->assertNull($resolver->resolve());
     }
