@@ -34,6 +34,12 @@
         </properties>
     </rule>
 
+    <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>config/*</exclude-pattern>
+        <exclude-pattern>src/*</exclude-pattern>
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+
     <file>src/</file>
 
     <exclude-pattern>*src/DataFixtures/*.php</exclude-pattern>
