@@ -19,7 +19,7 @@ class CorerelyJsTranslationKernel extends Kernel
         parent::__construct('test', true);
     }
 
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         return [
             new CorerelyJsTranslationBundle(),
