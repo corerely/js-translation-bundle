@@ -21,13 +21,14 @@
     },
     "require": {
         "php": "^8.0",
-        "symfony/http-foundation": "^5.0 || ^6.0",
-        "symfony/translation": "^5.0 || ^6.0"
+        "symfony/http-foundation": "^5.4 || ^6.0",
+        "symfony/translation": "^5.4 || ^6.0"
     },
     "require-dev": {
         "slevomat/coding-standard": "^7.0",
         "phpunit/phpunit": "^9.5",
-        "symfony/framework-bundle": "^5.0 || ^6.0",
-        "symfony/browser-kit": "^5.0 || ^6.0"
+        "symfony/framework-bundle": "^5.4 || ^6.0",
+        "symfony/browser-kit": "^5.4 || ^6.0",
+        "symfony/yaml": "^5.4 || ^6.0"
     }
 }

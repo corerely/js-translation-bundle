@@ -9,6 +9,7 @@ use Corerely\JsTranslationBundle\Resolver\CookieLocaleResolver;
 use Corerely\JsTranslationBundle\Resolver\DefaultLocaleResolver;
 use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 use Corerely\JsTranslationBundle\Resolver\RequestHeaderLocaleResolver;
+use Corerely\JsTranslationBundle\TranslationsCacheService;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Parameter;
 use Symfony\Component\DependencyInjection\Reference;
@@ -22,6 +23,10 @@ return static function (ContainerConfigurator $container) {
         ->arg(2, new Parameter('corerely.js_translation.domains'))
     ;
     $services->alias(JsTranslationsService::class, 'corerely.js_translation.service');
+
+    $services->set('corerely.js_translation.translation_cache_service', TranslationsCacheService::class)
+        ->arg(0, new Parameter('kernel.cache_dir'));
+    $services->alias(TranslationsCacheService::class, 'corerely.js_translation.translation_cache_service');
 
     $services->set('corerely.js_translation.translations_provider')
         ->class(TranslationsProvider::class)

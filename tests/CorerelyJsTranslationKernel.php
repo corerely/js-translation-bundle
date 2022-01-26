@@ -4,9 +4,11 @@ declare(strict_types=1);
 namespace Corerely\JsTranslationBundle\Tests;
 
 use Corerely\JsTranslationBundle\CorerelyJsTranslationBundle;
+use Corerely\JsTranslationBundle\Tests\DependencyInjection\PublicServicePass;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
@@ -27,21 +29,19 @@ class CorerelyJsTranslationKernel extends Kernel
         ];
     }
 
-    public function configureContainer(ContainerConfigurator $container): void
+    public function getCacheDir(): string
     {
-        $container->extension('framework', [
-            'router' => [
-                'utf8' => true,
-            ],
-        ]);
-
-        $parameters = $container->parameters();
-        $parameters->set('corerely.js_translation.domains', ['app']);
-        $parameters->set('corerely.js_translation.default_locale', 'en');
-        $parameters->set('corerely.js_translation.locales', ['en']);
+        return __DIR__ . '/../var/cache' . spl_object_hash($this);
     }
 
-    public function configureRoutes(RoutingConfigurator $routes): void
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    {
+        $container->addCompilerPass(new PublicServicePass());
+
+        $loader->load(__DIR__ . '/config/config.yaml');
+    }
+
+    protected function configureRoutes(RoutingConfigurator $routes): void
     {
         $routes->import(__DIR__ . '/../src/Resources/routing/routes.php')->prefix('translations');
     }

@@ -9,7 +9,7 @@ use Corerely\JsTranslationBundle\Resolver\LocaleResolverInterface;
 /**
  * Helper service that helps to retrieve translations for resolved locale and configured domains
  */
-class JsTranslationsService
+final class JsTranslationsService
 {
     private ?string $locale = null;
 

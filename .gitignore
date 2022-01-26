@@ -3,4 +3,5 @@ composer.lock
 .phpunit.result.cache
 .phpcs-cache
 var/
+!tests/fixtures/var
 .idea
