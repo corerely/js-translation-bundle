@@ -30,5 +30,10 @@
         "symfony/framework-bundle": "^5.4 || ^6.0",
         "symfony/browser-kit": "^5.4 || ^6.0",
         "symfony/yaml": "^5.4 || ^6.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
