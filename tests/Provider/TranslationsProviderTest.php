@@ -13,15 +13,24 @@ class TranslationsProviderTest extends TestCase
     public function testGet()
     {
         $mockedBag = $this->createMock(MessageCatalogueInterface::class);
-        $mockedBag->expects($this->once())->method('all')->willReturn([
-            'some.nested.key' => 'translated label',
-            'some.nested.key2' => 'translated label2',
-            'some_other_key' => 'some key',
-            'two.levels' => 'two levels'
-        ]);
+        $mockedBag->expects($this->exactly(2))->method('all')->willReturnOnConsecutiveCalls(
+            [
+                'some.nested.key' => 'translated label',
+                'some.nested.key2' => 'translated label2',
+                'some_other_key' => 'some key',
+                'two.levels' => 'second level'
+            ],
+            [
+                'some.nested.key' => 'swedish translated label',
+                'some.nested.key2' => 'swedish translated label2',
+                'some_other_key' => '',
+                'two.levels' => 'swedish second level',
+                'multiple.levels.third' => 'third level title',
+            ],
+        );
 
         $mockedTranslatorBag = $this->createMock(TranslatorBagInterface::class);
-        $mockedTranslatorBag->expects($this->once())->method('getCatalogue')->willReturn($mockedBag);
+        $mockedTranslatorBag->expects($this->exactly(2))->method('getCatalogue')->willReturn($mockedBag);
 
         $subject = new TranslationsProvider(
             $mockedTranslatorBag,
@@ -39,12 +48,31 @@ class TranslationsProviderTest extends TestCase
                     ],
                     'some_other_key' => 'some key',
                     'two' => [
-                        'levels' => 'two levels',
+                        'levels' => 'second level',
+                    ],
+                ],
+            ],
+            'sv' => [
+                'app' => [
+                    'some' => [
+                        'nested' => [
+                            'key' => 'swedish translated label',
+                            'key2' => 'swedish translated label2',
+                        ],
+                    ],
+                    'some_other_key' => 'some key', // Should not override with empty string
+                    'two' => [
+                        'levels' => 'swedish second level',
+                    ],
+                    'multiple' => [
+                        'levels' => [
+                            'third' => 'third level title',
+                        ],
                     ],
                 ],
             ],
         ];
 
-        $this->assertEquals($expect, $subject->get(['en'], ['app']));
+        $this->assertEquals($expect, $subject->get(['en', 'sv'], ['app']));
     }
 }
