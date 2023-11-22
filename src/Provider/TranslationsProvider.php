@@ -26,7 +26,7 @@ class TranslationsProvider implements TranslationsProviderInterface
                     $domains
                 );
 
-                $localeTranslations = array_replace_recursive(
+                $localeTranslations = $this->replaceArrayRecursive(
                     $defaultTranslations,
                     $localeTranslations
                 );
@@ -65,5 +65,20 @@ class TranslationsProvider implements TranslationsProviderInterface
         }
 
         return $translations;
+    }
+
+    private function replaceArrayRecursive(array $array, array $replacements): array
+    {
+        foreach ($replacements as $replacementKey => $replacement) {
+            if ($replacement) {
+                if (is_array($replacement) && is_array($array[$replacementKey] ?? null)) {
+                    $array[$replacementKey] = $this->replaceArrayRecursive($array[$replacementKey], $replacement);
+                } else {
+                    $array[$replacementKey] = $replacement;
+                }
+            }
+        }
+
+        return $array;
     }
 }
