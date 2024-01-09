@@ -9,12 +9,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class BundleInitializationTest extends KernelTestCase
 {
+    private ContainerInterface $testContainer;
+
     protected static function getKernelClass(): string
     {
         return CorerelyJsTranslationKernel::class;
     }
-
-    private ContainerInterface $testContainer;
 
     protected function setUp(): void
     {

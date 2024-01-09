@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class JsTranslationsServiceTest extends TestCase
 {
-    public function testGetActiveLocaleCalledOnlyOnce()
+    public function testGetActiveLocaleCalledOnlyOnce(): void
     {
         $mockedLocaleResolver = $this->createMock(LocaleResolverInterface::class);
         $mockedLocaleResolver->expects($this->once())->method('resolve')->willReturn('en');
@@ -18,7 +18,7 @@ class JsTranslationsServiceTest extends TestCase
         $service = new JsTranslationsService(
             $this->createMock(TranslationsProviderInterface::class),
             $mockedLocaleResolver,
-            ['app']
+            ['app'],
         );
 
         $service->getActiveLocale();

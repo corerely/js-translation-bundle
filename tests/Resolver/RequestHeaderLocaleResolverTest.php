@@ -4,16 +4,15 @@ declare(strict_types=1);
 namespace Corerely\JsTranslationBundle\Tests\Resolver;
 
 use Corerely\JsTranslationBundle\Resolver\RequestHeaderLocaleResolver;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class RequestHeaderLocaleResolverTest extends TestCase
 {
-    /**
-     * @dataProvider acceptLanguageProvider
-     */
-    public function testResolve(?string $expect, string $acceptLanguage)
+    #[DataProvider('acceptLanguageProvider')]
+    public function testResolve(?string $expect, string $acceptLanguage): void
     {
         $locales = ['en', 'uk'];
         $request = new Request(server: ['HTTP_ACCEPT_LANGUAGE' => $acceptLanguage]);
@@ -25,7 +24,7 @@ class RequestHeaderLocaleResolverTest extends TestCase
         $this->assertEquals($expect, $resolver->resolve());
     }
 
-    public function acceptLanguageProvider(): array
+    public static function acceptLanguageProvider(): array
     {
         return [
             ['uk', 'uk-UA,uk;q=0.9,ru;q=0.8,en-US;q=0.7,en;q=0.6,sv;q=0.5,de;q=0.4,pl;q=0.3'],
@@ -34,7 +33,7 @@ class RequestHeaderLocaleResolverTest extends TestCase
         ];
     }
 
-    public function testResolveReturnNullIfNotRequest()
+    public function testResolveReturnNullIfNotRequest(): void
     {
         $locales = ['en', 'uk'];
         $requestStack = new RequestStack();

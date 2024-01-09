@@ -10,7 +10,7 @@ use Symfony\Component\Translation\TranslatorBagInterface;
 
 class TranslationsProviderTest extends TestCase
 {
-    public function testGet()
+    public function testGet(): void
     {
         $mockedBag = $this->createMock(MessageCatalogueInterface::class);
         $mockedBag->expects($this->exactly(2))->method('all')->willReturnOnConsecutiveCalls(
@@ -18,7 +18,7 @@ class TranslationsProviderTest extends TestCase
                 'some.nested.key' => 'translated label',
                 'some.nested.key2' => 'translated label2',
                 'some_other_key' => 'some key',
-                'two.levels' => 'second level'
+                'two.levels' => 'second level',
             ],
             [
                 'some.nested.key' => 'swedish translated label',

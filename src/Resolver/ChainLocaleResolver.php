@@ -10,8 +10,9 @@ final class ChainLocaleResolver implements LocaleResolverInterface
      */
     private array $resolvers = [];
 
-    public function __construct(private array $locales)
-    {
+    public function __construct(
+        private readonly array $locales,
+    ) {
     }
 
     public function addResolver(LocaleResolverInterface $resolver): self

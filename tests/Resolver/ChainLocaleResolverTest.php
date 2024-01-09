@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ChainLocaleResolverTest extends TestCase
 {
-    public function testResolveReturnLocaleFromFirstResolverThatReturnSupportedLocale()
+    public function testResolveReturnLocaleFromFirstResolverThatReturnSupportedLocale(): void
     {
         $locale = 'en';
 
@@ -27,7 +27,7 @@ class ChainLocaleResolverTest extends TestCase
         $this->assertEquals($locale, $chainResolver->resolve());
     }
 
-    public function testResolveThrownExceptionIfNothingResolved()
+    public function testResolveThrownExceptionIfNothingResolved(): void
     {
         $resolver = $this->createMock(LocaleResolverInterface::class);
         $resolver->expects($this->once())->method('resolve')->willReturn(null);
@@ -38,7 +38,7 @@ class ChainLocaleResolverTest extends TestCase
         $chainResolver->resolve();
     }
 
-    public function testResolveThrownExceptionIfAllResolvedIsNotSupported()
+    public function testResolveThrownExceptionIfAllResolvedIsNotSupported(): void
     {
         $resolver1 = $this->createMock(LocaleResolverInterface::class);
         $resolver1->expects($this->once())->method('resolve')->willReturn('uk');

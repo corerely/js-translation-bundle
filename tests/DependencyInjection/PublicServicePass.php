@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class PublicServicePass implements CompilerPassInterface
 {
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $definition = $container->getDefinition('corerely.js_translation.translation_cache_service');
         $definition->setPublic(true);

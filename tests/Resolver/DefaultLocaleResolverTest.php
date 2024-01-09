@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DefaultLocaleResolverTest extends TestCase
 {
-    public function testResolveReturnDefaultLocale()
+    public function testResolveReturnDefaultLocale(): void
     {
         $resolver = new DefaultLocaleResolver('uk');
 

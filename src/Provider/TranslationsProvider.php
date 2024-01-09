@@ -7,8 +7,10 @@ use Symfony\Component\Translation\TranslatorBagInterface;
 
 class TranslationsProvider implements TranslationsProviderInterface
 {
-    public function __construct(private TranslatorBagInterface $translatorBag, private string $defaultLocale)
-    {
+    public function __construct(
+        private readonly TranslatorBagInterface $translatorBag,
+        private readonly string                 $defaultLocale,
+    ) {
     }
 
     public function get(array $locales, array $domains): array
@@ -23,12 +25,12 @@ class TranslationsProvider implements TranslationsProviderInterface
             if ($locale !== $this->defaultLocale) {
                 $defaultTranslations = $translations[$this->defaultLocale] ??= $this->getTranslationForLocale(
                     $this->defaultLocale,
-                    $domains
+                    $domains,
                 );
 
                 $localeTranslations = $this->replaceArrayRecursive(
                     $defaultTranslations,
-                    $localeTranslations
+                    $localeTranslations,
                 );
             }
 
@@ -36,7 +38,7 @@ class TranslationsProvider implements TranslationsProviderInterface
         }
 
         // Remove default translations if it was not needed, but added while population
-        if (!in_array($this->defaultLocale, $locales, true)) {
+        if (! in_array($this->defaultLocale, $locales, true)) {
             unset($translations[$this->defaultLocale]);
         }
 
@@ -59,7 +61,7 @@ class TranslationsProvider implements TranslationsProviderInterface
 
                 $translations[$domain] = array_merge_recursive(
                     $translations[$domain] ?? [],
-                    $nestedTranslation
+                    $nestedTranslation,
                 );
             }
         }

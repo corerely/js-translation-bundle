@@ -10,7 +10,7 @@ class TranslationsCacheServiceTest extends TestCase
 {
     private array $cleanFiles = [];
 
-    public function testClearCataloguesForLocale()
+    public function testClearCataloguesForLocale(): void
     {
         $file1 = __DIR__ . '/fixtures/var/translations/catalogue.en.8Fea9HX.php';
         $file2 = __DIR__ . '/fixtures/var/translations/catalogue.en.8Fea9HX.php.meta';
