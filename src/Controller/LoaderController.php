@@ -6,11 +6,13 @@ namespace Corerely\JsTranslationBundle\Controller;
 use Corerely\JsTranslationBundle\Provider\TranslationsProviderInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class LoaderController
+final readonly class LoaderController
 {
 
-    public function __construct(private TranslationsProviderInterface $translationsProvider, private array $domains)
-    {
+    public function __construct(
+        private TranslationsProviderInterface $translationsProvider,
+        private array                         $domains,
+    ) {
     }
 
     public function __invoke(string $locale): JsonResponse

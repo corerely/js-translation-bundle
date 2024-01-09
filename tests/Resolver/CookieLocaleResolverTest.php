@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class CookieLocaleResolverTest extends TestCase
 {
-    public function testResolve()
+    public function testResolve(): void
     {
         $request = new Request(cookies: ['locale' => 'uk']);
         $requestStack = new RequestStack();
@@ -21,7 +21,7 @@ class CookieLocaleResolverTest extends TestCase
         $this->assertEquals('uk', $resolver->resolve());
     }
 
-    public function testResolveReturnNullIfNoCookie()
+    public function testResolveReturnNullIfNoCookie(): void
     {
         $request = new Request();
         $requestStack = new RequestStack();
@@ -32,9 +32,8 @@ class CookieLocaleResolverTest extends TestCase
         $this->assertNull($resolver->resolve());
     }
 
-    public function testResolveReturnNullIfRequest()
+    public function testResolveReturnNullIfRequest(): void
     {
-        $locales = ['sv', 'uk'];
         $requestStack = new RequestStack();
 
         $resolver = new CookieLocaleResolver($requestStack);

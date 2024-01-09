@@ -6,12 +6,14 @@ namespace Corerely\JsTranslationBundle\Resolver;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class RequestHeaderLocaleResolver implements LocaleResolverInterface
+final readonly class RequestHeaderLocaleResolver implements LocaleResolverInterface
 {
     private ?Request $request;
 
-    public function __construct(RequestStack $requestStack, private array $locales)
-    {
+    public function __construct(
+        RequestStack  $requestStack,
+        private array $locales,
+    ) {
         $this->request = $requestStack->getCurrentRequest();
     }
 

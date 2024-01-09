@@ -18,7 +18,7 @@ class LoaderControllerTest extends TestCase
         $this->client = new KernelBrowser(new CorerelyJsTranslationKernel());
     }
 
-    public function testLoadTranslations()
+    public function testLoadTranslations(): void
     {
         $this->client->request('GET', '/translations/en');
 
