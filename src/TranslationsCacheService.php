@@ -5,7 +5,7 @@ namespace Corerely\JsTranslationBundle;
 
 use Symfony\Component\Finder\Finder;
 
-final class TranslationsCacheService
+final readonly class TranslationsCacheService
 {
 
     public function __construct(private string $cacheDir)

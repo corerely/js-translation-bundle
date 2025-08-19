@@ -5,11 +5,11 @@ namespace Corerely\JsTranslationBundle\Provider;
 
 use Symfony\Component\Translation\TranslatorBagInterface;
 
-class TranslationsProvider implements TranslationsProviderInterface
+readonly class TranslationsProvider implements TranslationsProviderInterface
 {
     public function __construct(
-        private readonly TranslatorBagInterface $translatorBag,
-        private readonly string                 $defaultLocale,
+        private TranslatorBagInterface $translatorBag,
+        private string                 $defaultLocale,
     ) {
     }
 

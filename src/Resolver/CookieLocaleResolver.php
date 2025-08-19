@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final readonly class CookieLocaleResolver implements LocaleResolverInterface
 {
-    public const LOCALE_COOKIE_NAME = 'locale';
+    public const string LOCALE_COOKIE_NAME = 'locale';
 
     private ?Request $request;
 
