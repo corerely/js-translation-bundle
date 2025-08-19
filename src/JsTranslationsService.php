@@ -14,9 +14,9 @@ final class JsTranslationsService
     private ?string $locale = null;
 
     public function __construct(
-        private TranslationsProviderInterface $translationsProvider,
-        private LocaleResolverInterface       $localeResolver,
-        private array                         $domains,
+        private readonly TranslationsProviderInterface $translationsProvider,
+        private readonly LocaleResolverInterface       $localeResolver,
+        private readonly array                         $domains,
     ) {
     }
 
